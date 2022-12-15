@@ -1,4 +1,4 @@
-const App= () => {
+const App = () => {
   return <div>Webpack boilerPlate</div>;
 };
 

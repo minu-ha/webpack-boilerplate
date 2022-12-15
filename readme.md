@@ -4,19 +4,6 @@ Project Setup
 React + TypeScript + Webpack + Babel
 ------------------------------------
 
-기본적인 개념은 참조링크를 참고하시고, 이 문서는 프로젝트 초기 세팅에 관하여 다룹니다.
-
-* Basic concept of Setting
-    * Documents
-        * [NPM](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
-        * [웹팩](https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html)
-        * [바벨](https://jeonghwan-kim.github.io/series/2019/12/22/frontend-dev-env-babel.html)
-        * [린트](https://jeonghwan-kim.github.io/series/2019/12/30/frontend-dev-env-lint.html)
-        *
-    * Videos
-        * [생활코딩](https://www.youtube.com/watch?v=cp_MeXO2fLg&list=PLuHgQVnccGMChcT9IKopFDoAIoTA-03DA)
-        *
-
 ##### dev environment & prod environment config structure
 
 1. Set up a Basic React app with TypeScript and Webpack 5
@@ -60,7 +47,7 @@ React + TypeScript + Webpack + Babel
 
 1. add styles.css
 2. npm install css-loader style-loader -D
-   1. this project need post-css
+    1. this project need post-css
 3. webpack 4 = need file-loader but webpack 5 = have to support that out of 
    the box through asset/resource
 4. webpack 4 = need url-loader but webpack 5 = asset/inline
@@ -71,8 +58,6 @@ React + TypeScript + Webpack + Babel
 2. in dev.js setting mode : development, devtool : cheap-module-source-map
 3. in prod.js setting mode : production, devtool : source-map
 4. npm install webpack-merge -D
-   1. `const { merge } = require('webpack-merge')`
-   2. `const commonConfig = require('./webpack.common.js')`
 5. npm build 
 6. npx serve
 7. check console network -> refresh -> can see bundle.js size
@@ -111,10 +96,17 @@ React + TypeScript + Webpack + Babel
 5. npm install webpack-bundle-analyzer -D
 
 
+##### Basic concept of Setting
 
-
-
-
+* Documents
+    * [NPM](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
+    * [웹팩](https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html)
+    * [바벨](https://jeonghwan-kim.github.io/series/2019/12/22/frontend-dev-env-babel.html)
+    * [린트](https://jeonghwan-kim.github.io/series/2019/12/30/frontend-dev-env-lint.html)
+    *
+* Videos
+    * [생활코딩](https://www.youtube.com/watch?v=cp_MeXO2fLg&list=PLuHgQVnccGMChcT9IKopFDoAIoTA-03DA)
+    *
 
 
 
