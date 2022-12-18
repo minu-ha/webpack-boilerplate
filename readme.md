@@ -4,6 +4,8 @@ Project Setup
 React + TypeScript + Webpack + Babel
 ------------------------------------
 
+[Webpack 5 Development Environment Setting Guide](https://minu-space.gitbook.io/webpack-guide-1/)
+
 ##### dev environment & prod environment config structure
 
 1. Set up a Basic React app with TypeScript and Webpack 5
@@ -30,9 +32,7 @@ React + TypeScript + Webpack + Babel
 8. add tsconfig.json in root
 9. add App.tsx, index.tsx in root
     1. App.tsx
-        1. ![App.tsx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F_6%2F6m3nbswd29g8q2jtq1_jvpj00000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_j6Uz2k%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-12-14%20%EC%98%A4%ED%9B%84%2011.41.16.png)
     2. index.tsx
-        1. ![index.tsx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F_6%2F6m3nbswd29g8q2jtq1_jvpj00000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_dNou75%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-12-14%20%EC%98%A4%ED%9B%84%2011.41.56.png)
 10. npm install @babel/core @babel/preset-env @babel/preset-react
     @babel/preset-typescript -D
 11. add .babelrc in root
