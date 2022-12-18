@@ -4,7 +4,7 @@ Project Setup
 React + TypeScript + Webpack + Babel
 ------------------------------------
 
-[Webpack 5 Development Environment Setting Guide](https://minu-space.gitbook.io/webpack-guide-1/)
+[Webpack 5 Setting Guide](https://minu-space.gitbook.io/webpack-guide-1/)
 
 ##### dev environment & prod environment config structure
 
