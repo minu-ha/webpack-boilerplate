@@ -97,18 +97,6 @@ React + TypeScript + Webpack + Babel
 4. modify webpack.common.js
 5. npm install webpack-bundle-analyzer -D
 
-##### Basic concept of Setting
-
-* Documents
-    * [NPM](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
-    * [웹팩](https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html)
-    * [바벨](https://jeonghwan-kim.github.io/series/2019/12/22/frontend-dev-env-babel.html)
-    * [린트](https://jeonghwan-kim.github.io/series/2019/12/30/frontend-dev-env-lint.html)
-    *
-* Videos
-    * [생활코딩](https://www.youtube.com/watch?v=cp_MeXO2fLg&list=PLuHgQVnccGMChcT9IKopFDoAIoTA-03DA)
-    *
-
 
 
 
