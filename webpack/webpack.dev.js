@@ -7,5 +7,19 @@ module.exports = {
     hot: true,
     open: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.(s[ac]|c)ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'resolve-url-loader',
+          'sass-loader',
+          'postcss-loader',
+        ],
+      },
+    ],
+  },
   plugins: [new ReactRefreshWebpackPlugin()],
 };

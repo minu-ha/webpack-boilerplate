@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './Layout.module.scss';
+import scss from 'components/Layout.module.scss';
 
 import classNames from 'classnames';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(scss);
 
 const Layout = () => {
-  return <div className={cx(styles.box)}>REACT WEBPACK </div>;
+  return <p className={cx(scss.box)}>REACT WEBPACK BOILER PLATE</p>;
 };
 
 export default Layout;

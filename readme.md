@@ -7,8 +7,9 @@ React + TypeScript + Webpack + Babel
 ##### dev environment & prod environment config structure
 
 1. Set up a Basic React app with TypeScript and Webpack 5
-   1. Design the directory structure and use npm to install dependencies and add
-      configuration files.
+    1. Design the directory structure and use npm to install dependencies and
+       add
+       configuration files.
 2. Configure webpack and TypeScript to allow rendering of images and SVGs
 3. Set up Webpack config for multiple environments like dev and prod
 4. Add react refresh
@@ -22,25 +23,26 @@ React + TypeScript + Webpack + Babel
 2. creat directory src & build
 3. add .gitignore -> build , node_modules
 4. npm init --y
-   1. default value package.json
+    1. default value package.json
 5. add index.html in root
 6. npm install react react-dom
 7. npm install typescript @types/react @types/react-dom -D
 8. add tsconfig.json in root
 9. add App.tsx, index.tsx in root
-   1. App.tsx
-      1. ![App.tsx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F_6%2F6m3nbswd29g8q2jtq1_jvpj00000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_j6Uz2k%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-12-14%20%EC%98%A4%ED%9B%84%2011.41.16.png)
-   2. index.tsx
-      1. ![index.tsx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F_6%2F6m3nbswd29g8q2jtq1_jvpj00000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_dNou75%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-12-14%20%EC%98%A4%ED%9B%84%2011.41.56.png)
-10. npm install @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript -D
+    1. App.tsx
+        1. ![App.tsx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F_6%2F6m3nbswd29g8q2jtq1_jvpj00000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_j6Uz2k%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-12-14%20%EC%98%A4%ED%9B%84%2011.41.16.png)
+    2. index.tsx
+        1. ![index.tsx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F_6%2F6m3nbswd29g8q2jtq1_jvpj00000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_dNou75%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-12-14%20%EC%98%A4%ED%9B%84%2011.41.56.png)
+10. npm install @babel/core @babel/preset-env @babel/preset-react
+    @babel/preset-typescript -D
 11. add .babelrc in root
 12. npm install webpack webpack-cli webpack-dev-server html-webpack-plugin -D
-    1. apart from these also need the babel loader package which allows 
+    1. apart from these also need the babel loader package which allows
        transpiling javascript
 13. npm install babel-loader -D
 14. create directory webpack, webpack.config.js
-    1. no need to specify the script tag in html file cuz webpack html 
-       plugin will take care of it for us 
+    1. no need to specify the script tag in html file cuz webpack html
+       plugin will take care of it for us
 15. start : webpack serve --config webpack/webpack.config.js --open
 
 ##### configurations to handle additional scenarios
@@ -48,7 +50,7 @@ React + TypeScript + Webpack + Babel
 1. add styles.css
 2. npm install css-loader style-loader -D
     1. this project need post-css
-3. webpack 4 = need file-loader but webpack 5 = have to support that out of 
+3. webpack 4 = need file-loader but webpack 5 = have to support that out of
    the box through asset/resource
 4. webpack 4 = need url-loader but webpack 5 = asset/inline
 
@@ -58,7 +60,7 @@ React + TypeScript + Webpack + Babel
 2. in dev.js setting mode : development, devtool : cheap-module-source-map
 3. in prod.js setting mode : production, devtool : source-map
 4. npm install webpack-merge -D
-5. npm build 
+5. npm build
 6. npx serve
 7. check console network -> refresh -> can see bundle.js size
 
@@ -94,7 +96,6 @@ React + TypeScript + Webpack + Babel
 3. npm install copy-webpack-plugin -D
 4. modify webpack.common.js
 5. npm install webpack-bundle-analyzer -D
-
 
 ##### Basic concept of Setting
 
