@@ -1,118 +1,122 @@
-Project Setup
-=============
+Using Storybook with MSW
+======================
 
-React + TypeScript + Webpack + Babel
-------------------------------------
+* A development environment and playground for UI components
+* Create components independently
+* Showcase those components interactively in an isolated development environment
+* Ability to view the different components that have already been developed
+* View what are the different props that those developed components accept
+* Ability to visually showcase those components to your stakeholder for feedback
+* Dynamically change props, accessibility score
 
-[Webpack 5 Setting Guide](https://minu-space.gitbook.io/webpack-guide-1/)
+`npx sb init` : install storybook in react application in the terminal
 
-##### dev environment & prod environment config structure
+**in webpack 5**
 
-1. Set up a Basic React app with TypeScript and Webpack 5
-    1. Design the directory structure and use npm to install dependencies and
-       add
-       configuration files.
-2. Configure webpack and TypeScript to allow rendering of images and SVGs
-3. Set up Webpack config for multiple environments like dev and prod
-4. Add react refresh
-5. Linting with ESLint
-6. Code formatting with Prettier
-7. Husky
+The Webpack 5 upgrade is Storybook's most upvoted GitHub issue.
+Since 6.2 is a minor release, Webpack 4 is still the default builder. But you
+can start using Webpack 5 by opting in.
 
-##### basic set up
+**For a fresh Storybook install:**
 
-1. creat new project
-2. creat directory src & build
-3. add .gitignore -> build , node_modules
-4. npm init --y
-    1. default value package.json
-5. add index.html in root
-6. npm install react react-dom
-7. npm install typescript @types/react @types/react-dom -D
-8. add tsconfig.json in root
-9. add App.tsx, index.tsx in root
-    1. App.tsx
-    2. index.tsx
-10. npm install @babel/core @babel/preset-env @babel/preset-react
-    @babel/preset-typescript -D
-11. add .babelrc in root
-12. npm install webpack webpack-cli webpack-dev-server html-webpack-plugin -D
-    1. apart from these also need the babel loader package which allows
-       transpiling javascript
-13. npm install babel-loader -D
-14. create directory webpack, webpack.config.js
-    1. no need to specify the script tag in html file cuz webpack html
-       plugin will take care of it for us
-15. start : webpack serve --config webpack/webpack.config.js --open
+`npx sb init -builder webpack5`
 
-##### configurations to handle additional scenarios
+**Next steps**
 
-1. add styles.css
-2. npm install css-loader style-loader -D
-    1. this project need post-css
-3. webpack 4 = need file-loader but webpack 5 = have to support that out of
-   the box through asset/resource
-4. webpack 4 = need url-loader but webpack 5 = asset/inline
+스토리북에서 scss 사용하기
 
-##### adjust webpack environment
+`npm install @storybook/preset-scss -D`
 
-1. add webpack.common.js, webpack.dev.js, webpack.prod.js, webpack.config.js
-2. in dev.js setting mode : development, devtool : cheap-module-source-map
-3. in prod.js setting mode : production, devtool : source-map
-4. npm install webpack-merge -D
-5. npm build
-6. npx serve
-7. check console network -> refresh -> can see bundle.js size
+```js
+  addons: [
+  '@storybook/preset-scss',
+]
+```
 
-##### react refresh
+---
 
-1. npm install @pmmmwh/react-refresh-webpack-plugin react-refresh -D
-2. edit dev.js devServer : hot, add refresh plugin
-3. State is no longer initialized when files change
+추가 에드온
 
-##### eslint setup
+`npm install @storybook/addon-console -D`   
+`npm install @storybook/addon-docs -D`   
+`npm install @storybook/addon-knobs -D`
 
-1. npm install eslint -D
-2. npm install eslint-plugin-react eslint-plugin-react-hooks -D
-3. npm install @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
-4. add .eslintrc.json in root
-5. npm install eslint-plugin-import eslint-plugin-jsx-a11y -D
-6. modify package.json -> add script : lint : eslint --fix
+[https://storybook.js.org/addons/@storybook/addon-a11y/](https://storybook.js.org/addons/@storybook/addon-a11y/)
 
-##### formatting code
+#
 
-1. npm install prettier eslint-config-prettier eslint-plugin-prettier -D
-2. add .prettierrc in root
+스토리북에서 절대경로 사용하기 1
 
-##### how to prevent linting and formatting errors with husky
+```js
+const path = require('path');
 
-1. npm install husky@4 lint-staged -D
-2. modify package.json lint-staged, husky : pre-commit : lint-staged
+module.exports = {
 
-##### recommend project setup
+  webpackFinal: async (config) => {
+    config.resolve.modules = [
+      ...(config.resolve.modules || []),
+      path.resolve(__dirname, "../src"),
+    ];
+    return config;
+  },
+}
+```
 
-1. npm install @babel/runtime @babel/plugin-transform-runtime -D
-2. update .babelrc
-3. npm install copy-webpack-plugin -D
-4. modify webpack.common.js
-5. npm install webpack-bundle-analyzer -D
+스토리북에서 절대경로 사용하기 2
 
+`npm install tsconfig-paths-webpack-plugin -D`
 
+```js
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+module.exports = {
 
+  webpackFinal: async config => {
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({
+        extensions: config.resolve.extensions,
+      }),
+    ];
+    return config;
+  },
+}
+```
 
+스토리북을 실행하면 DocGenPluginDeprecationWarning 표시   
+TypeScript 4.8 버전을 지원하지 않는 것으로 확인.
 
+참고
+[hipstersmoothie/react-docgen-typescript-plugin#69]()
 
+solve this problem
 
+```js
+// main.js
 
+typescript: {
+  reactDocgen: false;
+}
+```
 
+[https://stackoverflow.com/questions/70637257/storybook-error-when-using-webpack5-with-next-js-app-typescript](https://stackoverflow.com/questions/70637257/storybook-error-when-using-webpack5-with-next-js-app-typescript)
 
+[https://storybook.js.org/docs/react/configure/typescript]()
 
+#
 
+`npm install msw msw-storybook-addon -D`   
+.storybook/preview.js 파일에서 MSW 를 초기화하고 decorator를 제공하여
+Storybook 에서 MSW 를활성화합니다.
 
+```js
+import { initialize, mswDecorator } from 'msw-storybook-addon';
 
+// Initialize MSW
+initialize();
 
+// Provide the MSW addon decorator globally
+export const decorators = [mswDecorator];
+```
 
-
-
-
+`npx msw init public/`
