@@ -1,4 +1,4 @@
-import scss from 'components/Layout.module.scss';
+import scss from './Layout.module.scss';
 import classNames from 'classnames';
 
 const cx = classNames.bind(scss);

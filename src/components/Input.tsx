@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import scss from './Input.module.scss';
-import classNames from 'classnames';
+import styles from './Input.module.scss';
+import classNames from 'classnames/bind';
 
-const cx = classNames.bind(scss);
+const cx = classNames.bind(styles);
 
 export interface InputProps {
   placeholder: string;
@@ -10,7 +10,7 @@ export interface InputProps {
 
 const Input: FC<InputProps> = props => {
   const { ...rest } = props;
-  return <input className={cx(scss.wrapper)} {...rest} />;
+  return <input className={cx('box')} {...rest} />;
 };
 
 export default Input;
