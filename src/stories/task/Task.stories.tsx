@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Task from 'components/Task';
+import Task from 'pages/task/Task';
 
 export default {
   title: 'Task',
