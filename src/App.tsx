@@ -1,10 +1,12 @@
-import Layout from 'components/layout/Layout';
+import { Provider } from 'react-redux';
+import InboxScreen from './pages/task/InboxScreen';
+import store from './store/store';
 
 const App = () => {
   return (
-    <div>
-      <Layout />
-    </div>
+    <Provider store={store}>
+      <InboxScreen />
+    </Provider>
   );
 };
 

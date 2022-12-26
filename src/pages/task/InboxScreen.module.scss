@@ -1,0 +1,67 @@
+.page-lists-show {
+  min-height: 100vh;
+  background: white;
+  width: 500px;
+
+  nav {
+    background: #d3edf4;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+
+    .title-page {
+      font-size: 20px;
+      line-height: 2rem;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 800;
+      color: #1c3f53;
+      display: inline-block;
+      vertical-align: top;
+      max-width: 100%;
+    }
+  }
+}
+
+
+.wrapper-message {
+  position: absolute;
+  top: 45%;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: auto;
+  height: auto;
+  transform: translate3d(0, -50%, 0);
+  text-align: center;
+
+  [class^="icon-"] {
+    font-size: 48px;
+    line-height: 56px;
+    color: #2cc5d2;
+    display: block;
+  }
+
+  [class*="icon-"] {
+    font-size: 48px;
+    line-height: 56px;
+    color: #2cc5d2;
+    display: block;
+  }
+}
+
+.title-message {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #4a5568;
+}
+
+.subtitle-message {
+  font-size: 14px;
+  line-height: 20px;
+  color: #4a5568;
+}

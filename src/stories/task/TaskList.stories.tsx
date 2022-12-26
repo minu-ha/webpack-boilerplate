@@ -5,9 +5,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TaskList from 'pages/task/TaskList';
 import { Provider } from 'react-redux';
 import * as TaskStories from 'stories/task/Task.stories';
+import { TaskBoxState } from 'store/redux/taskSlice';
 
-// A super-simple mock of the state of the store
-export const MockedState = {
+export const MockedState: TaskBoxState = {
   tasks: [
     {
       ...TaskStories.Default.args?.task,
@@ -40,12 +40,11 @@ export const MockedState = {
   error: null,
 };
 
-// A super-simple mock of a redux store
 const MockStore = ({
   taskBoxState,
   children,
 }: {
-  taskBoxState: any;
+  taskBoxState: TaskBoxState;
   children: ReactNode;
 }) => (
   <Provider
@@ -60,9 +59,7 @@ const MockStore = ({
               action: PayloadAction<{ id: string; newTaskState: string }>
             ) => {
               const { id, newTaskState } = action.payload;
-              const task = state.tasks.findIndex(
-                (task: { id: string }) => task.id === id
-              );
+              const task = state.tasks.findIndex(task => task.id === id);
               if (task >= 0) {
                 state.tasks[task].state = newTaskState;
               }
@@ -89,10 +86,11 @@ export const Default = Template.bind({});
 Default.decorators = [
   story => <MockStore taskBoxState={MockedState}>{story()}</MockStore>,
 ];
+
 export const WithPinnedTasks = Template.bind({});
 WithPinnedTasks.decorators = [
   story => {
-    const pinnedtasks = [
+    const pinnedTasks = [
       ...MockedState.tasks.slice(0, 5),
       {
         id: '6',
@@ -105,7 +103,7 @@ WithPinnedTasks.decorators = [
       <MockStore
         taskBoxState={{
           ...MockedState,
-          tasks: pinnedtasks,
+          tasks: pinnedTasks,
         }}
       >
         {story()}

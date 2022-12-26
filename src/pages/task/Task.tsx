@@ -9,7 +9,6 @@ export interface TaskProps {
     id?: string;
     title?: string;
     state?: string;
-    updatedAt?: Date;
   };
   onArchiveTask?: (id: string | undefined) => void;
   onPinTask?: (id: string | undefined) => void;
@@ -24,44 +23,40 @@ const Task: FC<TaskProps> = props => {
 
   return (
     <div className={cx('list-item')}>
-      <label className="checkbox">
+      <label
+        className={cx('checkbox')}
+        htmlFor="checked"
+        aria-label={`archiveTask-${id}`}
+      >
         <input
           type="checkbox"
-          defaultChecked={state === 'TASK_ARCHIVED'}
           disabled={true}
           name="checked"
-        />
-        <span
-          role={'presentation'}
-          className="checkbox-custom"
-          onClick={() => onArchiveTask?.(id)}
           id={`archiveTask-${id}`}
           aria-label={`archiveTask-${id}`}
         />
+        <span role={'presentation'} onClick={() => onArchiveTask?.(id)} />
       </label>
-      <div className="title">
+      <label htmlFor="title" className={cx('title')}>
         <input
           type="text"
           value={title}
           readOnly={true}
+          name="title"
           placeholder="Input title"
         />
-      </div>
-      <div
-        role={'presentation'}
-        className="actions"
-        onClick={event => event.stopPropagation()}
-      >
-        {state !== 'TASK_ARCHIVED' && (
-          <button onClick={() => onPinTask?.(id)}>
-            <span
-              className={`icon-star`}
-              id={`pinTask-${id}`}
-              aria-label={`pinTask-${id}`}
-            />
-          </button>
-        )}
-      </div>
+      </label>
+      {state !== 'TASK_ARCHIVED' && (
+        <button
+          className={cx('pin-button')}
+          onClick={() => onPinTask?.(id)}
+          id={`pinTask-${id}`}
+          aria-label={`pinTask-${id}`}
+          key={`pinTask-${id}`}
+        >
+          <span className={cx('icon-star')} />
+        </button>
+      )}
     </div>
   );
 };
