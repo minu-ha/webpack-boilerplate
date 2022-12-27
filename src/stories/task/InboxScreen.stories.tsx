@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
 import { MockedState } from './TaskList.stories';
 
 export default {
-  title: 'InboxScreen',
+  title: 'Page/InboxScreen',
   component: InboxScreen,
   decorators: [story => <Provider store={store}>{story()}</Provider>],
 } as ComponentMeta<typeof InboxScreen>;

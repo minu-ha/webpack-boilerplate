@@ -10,8 +10,8 @@ export interface TaskProps {
     title?: string;
     state?: string;
   };
-  onArchiveTask?: (id: string | undefined) => void;
-  onPinTask?: (id: string | undefined) => void;
+  onArchiveTask: (id: string) => void;
+  onPinTask: (id: string) => void;
 }
 
 const Task: FC<TaskProps> = props => {
@@ -35,7 +35,10 @@ const Task: FC<TaskProps> = props => {
           id={`archiveTask-${id}`}
           aria-label={`archiveTask-${id}`}
         />
-        <span role={'presentation'} onClick={() => onArchiveTask?.(id)} />
+        <span
+          role={'presentation'}
+          onClick={() => onArchiveTask(id as string)}
+        />
       </label>
       <label htmlFor="title" className={cx('title')}>
         <input
@@ -49,7 +52,7 @@ const Task: FC<TaskProps> = props => {
       {state !== 'TASK_ARCHIVED' && (
         <button
           className={cx('pin-button')}
-          onClick={() => onPinTask?.(id)}
+          onClick={() => onPinTask(id as string)}
           id={`pinTask-${id}`}
           aria-label={`pinTask-${id}`}
           key={`pinTask-${id}`}

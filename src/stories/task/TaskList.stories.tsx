@@ -75,7 +75,7 @@ const MockStore = ({
 
 export default {
   component: TaskList,
-  title: 'TaskList',
+  title: 'Page/InboxScreen/TaskList',
   decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
   excludeStories: /.*MockedState$/,
 } as ComponentMeta<typeof TaskList>;

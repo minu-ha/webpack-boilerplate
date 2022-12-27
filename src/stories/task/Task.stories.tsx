@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Task from 'pages/task/Task';
+import Task, { TaskProps } from 'pages/task/Task';
 
 export default {
-  title: 'Task',
+  title: 'Page/InboxScreen/TaskList/Task',
   component: Task,
 } as ComponentMeta<typeof Task>;
 
@@ -24,7 +24,7 @@ Pinned.args = {
     ...Default.args.task,
     state: 'TASK_PINNED',
   },
-};
+} as TaskProps;
 
 export const Archived = Template.bind({});
 Archived.args = {
@@ -32,4 +32,4 @@ Archived.args = {
     ...Default.args.task,
     state: 'TASK_ARCHIVED',
   },
-};
+} as TaskProps;

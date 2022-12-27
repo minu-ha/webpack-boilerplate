@@ -10,7 +10,7 @@ export interface InputProps {
 
 const Input: FC<InputProps> = props => {
   const { ...rest } = props;
-  return <input className={cx('box')} {...rest} />;
+  return <input className={cx('wrapper')} {...rest} />;
 };
 
 export default Input;

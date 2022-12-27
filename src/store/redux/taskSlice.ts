@@ -1,19 +1,21 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Task {
-  id?: string;
-  title?: string;
-  state?: string;
-  completed?: boolean;
+  id: string;
+  title: string;
+  state: string;
+  completed: boolean;
 }
 
+export type OptionalTask = Partial<Task>;
+
 export interface TaskBoxState {
-  tasks: Task[];
+  tasks: OptionalTask[];
   status: string;
   error: string | null;
 }
 
-const defaultTasks: Task[] = [
+const defaultTasks: OptionalTask[] = [
   {
     id: '1',
     title: 'Something',
@@ -47,7 +49,7 @@ export const fetchTasks = createAsyncThunk('todos/fetchTodos', async () => {
     'https://jsonplaceholder.typicode.com/todos?userId=1'
   );
   const data = await response.json();
-  return data.map((task: Task) => ({
+  return data.map((task: OptionalTask) => ({
     id: `${task.id}`,
     title: task.title,
     state: task.completed ? 'TASK_ARCHIVED' : 'TASK_INBOX',
