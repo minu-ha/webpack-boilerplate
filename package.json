@@ -4,11 +4,14 @@
     "start": "webpack serve -c webpack/webpack.config.js --env env=dev",
     "build": "webpack -c webpack/webpack.config.js --env env=prod",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
-    "prettier": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+    "prettier": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "serve-json": "json-server --watch ./src/db/db.json --port 4000"
   },
   "dependencies": {
+    "json-server": "^0.17.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
