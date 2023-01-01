@@ -1,5 +1,10 @@
-.box{
-  width: 100px;
-  height: 100px;
-  color: red;
+.nav-wrapper {
+  background-color: #ff0000;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: center;
+
+  a {
+    margin-right: 20px;
+  }
 }

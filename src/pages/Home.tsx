@@ -6,7 +6,7 @@ export interface HomeProps {
 
 const Home: FC<HomeProps> = props => {
   const { children } = props;
-  return <div></div>;
+  return <div>HOME PAGE</div>;
 };
 
 export default Home;

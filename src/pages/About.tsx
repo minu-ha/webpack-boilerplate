@@ -6,7 +6,7 @@ export interface AboutProps {
 
 const About: FC<AboutProps> = props => {
   const { children } = props;
-  return <div></div>;
+  return <div>ABOUT PAGE</div>;
 };
 
 export default About;
