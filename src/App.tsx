@@ -1,43 +1,24 @@
 import Navbar from 'components/Navbar';
-import Admin from 'pages/Admin';
-import FeatureProducts from 'pages/FeatureProducts';
-import Home from 'pages/Home';
-import NewProducts from 'pages/NewProducts';
-import NoMatch from 'pages/NoMatch';
-import OrderSummary from 'pages/OrderSummary';
-import Products from 'pages/Products';
-import UserDetails from 'pages/UserDetails';
-import Users from 'pages/Users';
-import React, { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import Routing from './routes/Routing';
 
-const LazyAbout = lazy(() => import('pages/About'));
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity, // ...
+    },
+  },
+});
+
 const App = () => {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} position={'bottom-right'} />
       <Navbar />
-      <Routes>
-        <Route path={'/'} element={<Home />} />
-        <Route
-          path={'about'}
-          element={
-            <Suspense fallback={'loading'}>
-              <LazyAbout />
-            </Suspense>
-          }
-        />
-        <Route path={'order-summary'} element={<OrderSummary />} />
-        <Route path={'products'} element={<Products />}>
-          <Route path={'featured'} element={<FeatureProducts />} />
-          <Route path={'new'} element={<NewProducts />} />
-        </Route>
-        <Route path={'users'} element={<Users />}>
-          <Route path={':userId'} element={<UserDetails />} />
-          <Route path={'admin'} element={<Admin />} />
-        </Route>
-        <Route path={'*'} element={<NoMatch />} />
-      </Routes>
-    </>
+      <Routing />
+    </QueryClientProvider>
   );
 };
 

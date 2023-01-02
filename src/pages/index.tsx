@@ -5,7 +5,7 @@ export interface HomeProps {
   children?: ReactNode;
 }
 
-const Home: FC<HomeProps> = props => {
+const Index: FC<HomeProps> = props => {
   const { children } = props;
 
   const navigate = useNavigate();
@@ -20,4 +20,4 @@ const Home: FC<HomeProps> = props => {
   );
 };
 
-export default Home;
+export default Index;

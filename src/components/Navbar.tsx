@@ -11,31 +11,31 @@ const Navbar: FC = () => {
     <nav className={cx('nav-wrapper')}>
       <NavLink
         className={({ isActive }) => (isActive ? cx('active') : 'none')}
-        to={'/'}
+        to={''}
       >
         HOME
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? cx('active') : 'none')}
-        to={'/about'}
+        to={'about'}
       >
         ABOUT
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? cx('active') : 'none')}
-        to={'/products'}
+        to={'products'}
       >
         PRODUCTS
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? cx('active') : 'none')}
-        to={'/users'}
+        to={'users'}
       >
         USERS
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? cx('active') : 'none')}
-        to={'/users/admin'}
+        to={'users/admin'}
       >
         ADMIN
       </NavLink>
