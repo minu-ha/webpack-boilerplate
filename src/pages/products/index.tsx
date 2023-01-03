@@ -5,7 +5,7 @@ export interface ProductsProps {
   children?: ReactNode;
 }
 
-const Products: FC<ProductsProps> = props => {
+const Index: FC<ProductsProps> = props => {
   const { children } = props;
   return (
     <>
@@ -21,4 +21,4 @@ const Products: FC<ProductsProps> = props => {
   );
 };
 
-export default Products;
+export default Index;

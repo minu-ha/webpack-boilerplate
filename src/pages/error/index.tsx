@@ -4,9 +4,9 @@ export interface NoMatchProps {
   children?: ReactNode;
 }
 
-const NoMatch: FC<NoMatchProps> = props => {
+const Index: FC<NoMatchProps> = props => {
   const { children } = props;
   return <div>PAGE NOT FOUND</div>;
 };
 
-export default NoMatch;
+export default Index;

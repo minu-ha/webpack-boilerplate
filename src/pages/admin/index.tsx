@@ -5,7 +5,7 @@ export interface AdminProps {
   children?: ReactNode;
 }
 
-const Admin: FC<AdminProps> = props => {
+const Index: FC<AdminProps> = props => {
   const { children } = props;
   return (
     <>
@@ -15,4 +15,4 @@ const Admin: FC<AdminProps> = props => {
   );
 };
 
-export default Admin;
+export default Index;

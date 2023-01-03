@@ -5,7 +5,7 @@ export interface UsersProps {
   children?: ReactNode;
 }
 
-const Users: FC<UsersProps> = props => {
+const Index: FC<UsersProps> = props => {
   const { children } = props;
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,4 +35,4 @@ const Users: FC<UsersProps> = props => {
   );
 };
 
-export default Users;
+export default Index;
