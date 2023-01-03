@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Routing from './routes/Routing';
 
+import 'util/translation/config';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
