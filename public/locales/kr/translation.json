@@ -3,5 +3,8 @@
   "description": {
     "part1": "간단한 샘플입니다.",
     "part2": "😉"
+  },
+  "footer": {
+    "date": "Today is {{date, DATE_HUGE}}"
   }
 }

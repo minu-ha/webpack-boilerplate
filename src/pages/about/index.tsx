@@ -1,19 +1,23 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-interface Language {
-  [key: string]: {
-    nativeName: string;
+type Language<T extends string> = {
+  [key in T]: {
+    nativeName: T;
   };
-}
-
-const languages: Language = {
-  en: { nativeName: 'English' },
-  kr: { nativeName: 'Korea' },
 };
 
 const Index: FC = () => {
   const { t, i18n } = useTranslation();
+
+  const languages: Language<string> = {
+    en: { nativeName: 'English' },
+    kr: { nativeName: 'Korea' },
+  };
+
+  const changeLanguageHandler = (language: string) => {
+    return i18n.changeLanguage(language);
+  };
 
   return (
     <>
@@ -22,12 +26,13 @@ const Index: FC = () => {
         <p>{t('description.part1')}</p>
         <p>{t('description.part2')}</p>
       </div>
+      <div>{t('footer.date', { date: new Date() })}</div>
       <div>
         {Object.keys(languages).map(language => (
           <button
             key={language}
             type={'submit'}
-            onClick={() => i18n.changeLanguage(language)}
+            onClick={() => changeLanguageHandler(language)}
           >
             {languages[language].nativeName}
           </button>
