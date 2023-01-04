@@ -10,5 +10,6 @@ i18next
   .use(initReactI18next)
   .init({
     debug: true,
-    fallbackLng: ['en', 'kr'],
+    detection: { caches: ['localStorage', 'cookie'] },
+    fallbackLng: ['kr', 'en'],
   });
