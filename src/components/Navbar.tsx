@@ -39,6 +39,12 @@ const Navbar: FC = () => {
       >
         ADMIN
       </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? cx('active') : 'none')}
+        to={'query'}
+      >
+        QUERY
+      </NavLink>
     </nav>
   );
 };

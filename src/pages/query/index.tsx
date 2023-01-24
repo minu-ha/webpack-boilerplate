@@ -1,12 +1,14 @@
-import React, { FC, ReactNode } from 'react';
+import PaginatedQueries from 'components/common/PaginatedQueries';
+import RQSuperHeroes from 'components/common/RQSuperHeroes';
+import { FC } from 'react';
 
-export interface IndexProps {
-  children?: ReactNode;
-}
-
-const Index: FC<IndexProps> = props => {
-  const { children } = props;
-  return <div></div>;
+const Index: FC = () => {
+  return (
+    <>
+      <RQSuperHeroes />
+      <PaginatedQueries />
+    </>
+  );
 };
 
 export default Index;
